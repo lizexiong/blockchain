@@ -1,0 +1,11 @@
+{
+"mysql_server_address": "127.0.0.2",
+   "redis_server_port_asset": 6000,
+   "redis_server_address_asset": "127.0.0.1",
+   "sync_interval_asset": 30,
+   "mysql_server_port": 3306,
+   "mysql_db": "hft",
+   "redis_password_asset": "naccb",
+   "mysql_user": "api",
+   "mysql_password": "naccb"
+}
