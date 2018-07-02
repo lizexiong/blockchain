@@ -4,10 +4,8 @@
         "BBBBBB"
     ], 
     "redis_password_asset": "", 
-    "redis_password_deal": "", 
     "redis_server_address_asset": "ec-asset-001.kzfkup.0001.usw1.cache.amazonaws.com", 
-    "redis_server_address_deal": "3.3.3.3", 
     "redis_server_address_quote": "2.2.2.2", 
     "redis_server_port_asset": 6379, 
-    "redis_server_port_deal": 6379
+    "server_endpoint": "tcp://*:8888"
 }

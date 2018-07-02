@@ -1,0 +1,22 @@
+{
+    "mysql_db": "hft", 
+    "mysql_password": "k1<=iK1?", 
+    "mysql_server_address": "coinusdinstance.cnsnommnvbpd.us-west-1.rds.amazonaws.com", 
+    "mysql_server_port": 3306, 
+    "mysql_user": "coinusd", 
+    "redis_password_asset": "", 
+    "redis_server_address_asset": "ec-asset-001.kzfkup.0001.usw1.cache.amazonaws.com", 
+    "redis_server_port_asset": 6379, 
+    "redis_server_quote_group": {
+        "AAAAAA": [
+            "2.2.2.2", 
+            6379, 
+            ""
+        ], 
+        "BBBBBB": [
+            "2.2.2.2", 
+            6379, 
+            ""
+        ]
+    }
+}

@@ -38,6 +38,7 @@ class ConfigureInitial(object):
 	def post_mc(self):
 		self.config_content_dict = self.open_file(settings.post_mc)
 
+		self.config_content_dict['redis_server_quote_group'].clear()
 		if self.quote_redis != None:
 			for single in self.trading:
 				self.config_content_dict['redis_server_quote_group'][single] = [self.quote_redis, 6379, ""]
@@ -47,50 +48,34 @@ class ConfigureInitial(object):
 	def deal(self):
 		self.config_content_dict = self.open_file(settings.deal)
 
-		# for single in self.trading:
-		# 	if len(self.trading) < 1:
-		# 		self.config_content_dict['market_list'] = single
-		# 	else:
-		# 		self.config_content_dict['market_list'].append(single)
-		self.market_list(self.trading)
+		self.market_list()
 		self.redis_change()
-		# if self.deal_redis != None:
-		# 	self.config_content_dict['redis_server_address_deal'] = self.deal_redis
-		
+
 		self.close_new_file(settings.deal)
 
 	def quote(self):
 		self.config_content_dict = self.open_file(settings.quote)
 
-		for single in self.trading:
-			if len(self.trading) < 1:
-				self.config_content_dict['market_list'] = single
-			else:
-				self.config_content_dict['market_list'].append(single)
-
-		if self.deal_redis != None:
-			self.config_content_dict['redis_server_address_deal'] = self.deal_redis
-		if self.quote_redis != None:
-			self.config_content_dict['redis_server_address_quote'] = self.quote_redis
+		self.market_list()
+		self.redis_change()
 
 		self.close_new_file(settings.quote)
 
 	def guard(self):
 		self.config_content_dict = self.open_file(settings.guard)
 
-		for single in self.trading:
-			if len(self.trading) < 1:
-				self.config_content_dict['market_list'] = single
-			else:
-				self.config_content_dict['market_list'].append(single)
+		self.market_list()
+		self.redis_change()
 
+		self.config_content_dict['server_endpoint'] = "tcp://*:" + self.guard_port
 
-	def market_list(self,trading):
+		self.close_new_file(settings.guard)
+
+	def market_list(self,):
+
+		del self.config_content_dict['market_list'][:]
 		for single in self.trading:
-			if len(self.trading) < 1:
-				self.config_content_dict['market_list'] = single
-			else:
-				self.config_content_dict['market_list'].append(single)
+			self.config_content_dict['market_list'].append(single)
 
 	def redis_change(self,):
 		if self.deal_redis != None:
@@ -98,15 +83,14 @@ class ConfigureInitial(object):
 		if self.quote_redis != None:
 			self.config_content_dict['redis_server_address_quote'] = self.quote_redis
 
-
 	def close_new_file(self,configfile):
 		new_file = open(configfile + ".txt" ,'w+')
 		new_file.write(json.dumps(self.config_content_dict,sort_keys=True, indent=4,))
 		self.configcontent.close()
 			
 
-obj = ConfigureInitial(['BTCZX','ETHZX'],'10.10.01.1','123','192.168.10.1','8.8.8.8')
-# obj.gw_rest()
-# obj.post_mc()
-obj.deal()
-# obj.quote()
+obj = ConfigureInitial(['AAAAAA','BBBBBB'],'1.1.1.1','8888','2.2.2.2',)
+obj.gw_rest()
+obj.post_mc()
+obj.quote()
+obj.guard()
