@@ -16,12 +16,14 @@ assest_redis = ""
 
 
 
+gw_rest_path = "/opt/apps/gw-rest.0/"
 
 gw_rest = "gw-rest.conf"
 
-post_mc = "post-mc.conf"
 
-post_mc_trade = "post-mc-trade.conf"
+test_post_mc_trade_path = "/opt/apps/post-mc-trade/"
+
+post_mc_trade = "post-mc.conf"
 
 deal = "deal.conf"
 

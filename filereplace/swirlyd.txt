@@ -4,9 +4,12 @@
         "BBBBBB"
     ], 
     "redis_password_deal": "", 
+    "redis_password_order": "", 
     "redis_password_quote": "", 
     "redis_server_address_deal": "3.3.3.3", 
+    "redis_server_address_order": "ec-asset-001.kzfkup.0001.usw1.cache.amazonaws.com", 
     "redis_server_address_quote": "2.2.2.2", 
     "redis_server_port_deal": 6379, 
+    "redis_server_port_order": 6379, 
     "redis_server_port_quote": 6379
 }
